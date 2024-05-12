@@ -1,0 +1,42 @@
+﻿@model ProyectoMVC.Models.Materias
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Materias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creditos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creditos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semestres.ID_Semestre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semestres.ID_Semestre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Materia }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

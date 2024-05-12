@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ITSTModelStoreContainer" CdmEntityContainer="ITSTEntities">
+    <EntitySetMapping Name="Alumnos">
+      <EntityTypeMapping TypeName="ITSTModel.Alumnos">
+        <MappingFragment StoreEntitySet="Alumnos">
+          <ScalarProperty Name="ID_Alumno" ColumnName="ID_Alumno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApePat" ColumnName="ApePat" />
+          <ScalarProperty Name="ApeMat" ColumnName="ApeMat" />
+          <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+          <ScalarProperty Name="Curp" ColumnName="Curp" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Foto_Url" ColumnName="Foto_Url" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Turno" ColumnName="Turno" />
+          <ScalarProperty Name="Semestre_ID" ColumnName="Semestre_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carreras">
+      <EntityTypeMapping TypeName="ITSTModel.Carreras">
+        <MappingFragment StoreEntitySet="Carreras">
+          <ScalarProperty Name="ID_Carrera" ColumnName="ID_Carrera" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Modalidad" ColumnName="Modalidad" />
+          <ScalarProperty Name="Duracion_Semestres" ColumnName="Duracion_Semestres" />
+          <ScalarProperty Name="Maestria_ID" ColumnName="Maestria_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maestrias">
+      <EntityTypeMapping TypeName="ITSTModel.Maestrias">
+        <MappingFragment StoreEntitySet="Maestrias">
+          <ScalarProperty Name="ID_Maestria" ColumnName="ID_Maestria" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Modalidad" ColumnName="Modalidad" />
+          <ScalarProperty Name="Duracion_Semestres" ColumnName="Duracion_Semestres" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maestros">
+      <EntityTypeMapping TypeName="ITSTModel.Maestros">
+        <MappingFragment StoreEntitySet="Maestros">
+          <ScalarProperty Name="ID_Maestro" ColumnName="ID_Maestro" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApePat" ColumnName="ApePat" />
+          <ScalarProperty Name="ApeMat" ColumnName="ApeMat" />
+          <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+          <ScalarProperty Name="Curp" ColumnName="Curp" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Foto_Url" ColumnName="Foto_Url" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Materia_ID" ColumnName="Materia_ID" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materias">
+      <EntityTypeMapping TypeName="ITSTModel.Materias">
+        <MappingFragment StoreEntitySet="Materias">
+          <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Creditos" ColumnName="Creditos" />
+          <ScalarProperty Name="Semestre_ID" ColumnName="Semestre_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semestres">
+      <EntityTypeMapping TypeName="ITSTModel.Semestres">
+        <MappingFragment StoreEntitySet="Semestres">
+          <ScalarProperty Name="ID_Semestre" ColumnName="ID_Semestre" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Carrera_ID" ColumnName="Carrera_ID" />
+          <ScalarProperty Name="FechaI" ColumnName="FechaI" />
+          <ScalarProperty Name="FechaF" ColumnName="FechaF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ITSTModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Calificaciones">
+      <EntityTypeMapping TypeName="ITSTModel.Calificaciones">
+        <MappingFragment StoreEntitySet="Calificaciones">
+          <ScalarProperty Name="Materia_ID" ColumnName="Materia_ID" />
+          <ScalarProperty Name="Alumno_ID" ColumnName="Alumno_ID" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+          <ScalarProperty Name="ID_Calificacion" ColumnName="ID_Calificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

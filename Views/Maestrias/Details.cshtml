@@ -1,0 +1,42 @@
+﻿@model ProyectoMVC.Models.Maestrias
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Maestrias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modalidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modalidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duracion_Semestres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duracion_Semestres)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Maestria }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

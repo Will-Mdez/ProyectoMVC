@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ITSTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alumnos">
+    <Key>
+      <PropertyRef Name="ID_Alumno" />
+    </Key>
+    <Property Name="ID_Alumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApePat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApeMat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Matricula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Curp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Edad" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Sexo" Type="Boolean" />
+    <Property Name="Foto_Url" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" />
+    <Property Name="Turno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Semestre_ID" Type="Int32" />
+    <NavigationProperty Name="Semestres" Relationship="Self.FK__Alumnos__Semestr__151B244E" FromRole="Alumnos" ToRole="Semestres" />
+    <NavigationProperty Name="Calificaciones" Relationship="ITSTModel.FK__Calificac__Alumn__282DF8C2" FromRole="Alumnos" ToRole="Calificaciones" />
+  </EntityType>
+  <EntityType Name="Carreras">
+    <Key>
+      <PropertyRef Name="ID_Carrera" />
+    </Key>
+    <Property Name="ID_Carrera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Modalidad" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Duracion_Semestres" Type="Int32" />
+    <Property Name="Maestria_ID" Type="Int32" />
+    <NavigationProperty Name="Maestrias" Relationship="Self.FK__Carreras__Maestr__3F466844" FromRole="Carreras" ToRole="Maestrias" />
+    <NavigationProperty Name="Semestres" Relationship="Self.FK__Semestres__Carre__4222D4EF" FromRole="Carreras" ToRole="Semestres" />
+  </EntityType>
+  <EntityType Name="Maestrias">
+    <Key>
+      <PropertyRef Name="ID_Maestria" />
+    </Key>
+    <Property Name="ID_Maestria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Modalidad" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Duracion_Semestres" Type="Int32" />
+    <NavigationProperty Name="Carreras" Relationship="Self.FK__Carreras__Maestr__3F466844" FromRole="Maestrias" ToRole="Carreras" />
+  </EntityType>
+  <EntityType Name="Maestros">
+    <Key>
+      <PropertyRef Name="ID_Maestro" />
+    </Key>
+    <Property Name="ID_Maestro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApePat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApeMat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Matricula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Curp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Edad" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Sexo" Type="Boolean" />
+    <Property Name="Foto_Url" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Materia_ID" Type="Int32" />
+    <Property Name="Activo" Type="Boolean" />
+    <NavigationProperty Name="Materias" Relationship="Self.FK__Maestros__Materi__4AB81AF0" FromRole="Maestros" ToRole="Materias" />
+  </EntityType>
+  <EntityType Name="Materias">
+    <Key>
+      <PropertyRef Name="ID_Materia" />
+    </Key>
+    <Property Name="ID_Materia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Creditos" Type="Int32" />
+    <Property Name="Semestre_ID" Type="Int32" />
+    <NavigationProperty Name="Maestros" Relationship="Self.FK__Maestros__Materi__4AB81AF0" FromRole="Materias" ToRole="Maestros" />
+    <NavigationProperty Name="Semestres" Relationship="Self.FK__Materias__Semest__47DBAE45" FromRole="Materias" ToRole="Semestres" />
+    <NavigationProperty Name="Calificaciones" Relationship="ITSTModel.FK__Calificac__Mater__29221CFB" FromRole="Materias" ToRole="Calificaciones" />
+  </EntityType>
+  <EntityType Name="Semestres">
+    <Key>
+      <PropertyRef Name="ID_Semestre" />
+    </Key>
+    <Property Name="ID_Semestre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Numero" Type="Int32" />
+    <Property Name="Carrera_ID" Type="Int32" />
+    <Property Name="FechaI" Type="DateTime" Precision="0" />
+    <Property Name="FechaF" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Alumnos" Relationship="Self.FK__Alumnos__Semestr__151B244E" FromRole="Semestres" ToRole="Alumnos" />
+    <NavigationProperty Name="Carreras" Relationship="Self.FK__Semestres__Carre__4222D4EF" FromRole="Semestres" ToRole="Carreras" />
+    <NavigationProperty Name="Materias" Relationship="Self.FK__Materias__Semest__47DBAE45" FromRole="Semestres" ToRole="Materias" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Alumnos__Semestr__151B244E">
+    <End Role="Semestres" Type="Self.Semestres" Multiplicity="0..1" />
+    <End Role="Alumnos" Type="Self.Alumnos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Semestres">
+        <PropertyRef Name="ID_Semestre" />
+      </Principal>
+      <Dependent Role="Alumnos">
+        <PropertyRef Name="Semestre_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Carreras__Maestr__3F466844">
+    <End Role="Maestrias" Type="Self.Maestrias" Multiplicity="0..1" />
+    <End Role="Carreras" Type="Self.Carreras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maestrias">
+        <PropertyRef Name="ID_Maestria" />
+      </Principal>
+      <Dependent Role="Carreras">
+        <PropertyRef Name="Maestria_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Semestres__Carre__4222D4EF">
+    <End Role="Carreras" Type="Self.Carreras" Multiplicity="0..1" />
+    <End Role="Semestres" Type="Self.Semestres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carreras">
+        <PropertyRef Name="ID_Carrera" />
+      </Principal>
+      <Dependent Role="Semestres">
+        <PropertyRef Name="Carrera_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maestros__Materi__4AB81AF0">
+    <End Role="Materias" Type="Self.Materias" Multiplicity="0..1" />
+    <End Role="Maestros" Type="Self.Maestros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materias">
+        <PropertyRef Name="ID_Materia" />
+      </Principal>
+      <Dependent Role="Maestros">
+        <PropertyRef Name="Materia_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Materias__Semest__47DBAE45">
+    <End Role="Semestres" Type="Self.Semestres" Multiplicity="0..1" />
+    <End Role="Materias" Type="Self.Materias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Semestres">
+        <PropertyRef Name="ID_Semestre" />
+      </Principal>
+      <Dependent Role="Materias">
+        <PropertyRef Name="Semestre_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ITSTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alumnos" EntityType="Self.Alumnos" />
+    <EntitySet Name="Carreras" EntityType="Self.Carreras" />
+    <EntitySet Name="Maestrias" EntityType="Self.Maestrias" />
+    <EntitySet Name="Maestros" EntityType="Self.Maestros" />
+    <EntitySet Name="Materias" EntityType="Self.Materias" />
+    <EntitySet Name="Semestres" EntityType="Self.Semestres" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK__Alumnos__Semestr__151B244E" Association="Self.FK__Alumnos__Semestr__151B244E">
+      <End Role="Semestres" EntitySet="Semestres" />
+      <End Role="Alumnos" EntitySet="Alumnos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Carreras__Maestr__3F466844" Association="Self.FK__Carreras__Maestr__3F466844">
+      <End Role="Maestrias" EntitySet="Maestrias" />
+      <End Role="Carreras" EntitySet="Carreras" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Semestres__Carre__4222D4EF" Association="Self.FK__Semestres__Carre__4222D4EF">
+      <End Role="Carreras" EntitySet="Carreras" />
+      <End Role="Semestres" EntitySet="Semestres" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maestros__Materi__4AB81AF0" Association="Self.FK__Maestros__Materi__4AB81AF0">
+      <End Role="Materias" EntitySet="Materias" />
+      <End Role="Maestros" EntitySet="Maestros" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Materias__Semest__47DBAE45" Association="Self.FK__Materias__Semest__47DBAE45">
+      <End Role="Semestres" EntitySet="Semestres" />
+      <End Role="Materias" EntitySet="Materias" />
+    </AssociationSet>
+    <EntitySet Name="Calificaciones" EntityType="ITSTModel.Calificaciones" />
+    <AssociationSet Name="FK__Calificac__Alumn__282DF8C2" Association="ITSTModel.FK__Calificac__Alumn__282DF8C2">
+      <End Role="Alumnos" EntitySet="Alumnos" />
+      <End Role="Calificaciones" EntitySet="Calificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Calificac__Mater__29221CFB" Association="ITSTModel.FK__Calificac__Mater__29221CFB">
+      <End Role="Materias" EntitySet="Materias" />
+      <End Role="Calificaciones" EntitySet="Calificaciones" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Calificaciones">
+    <Key>
+      <PropertyRef Name="ID_Calificacion" />
+    </Key>
+    <Property Name="ID_Calificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Calificacion" Type="Double" />
+    <Property Name="Fecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Alumno_ID" Type="Int32" />
+    <Property Name="Materia_ID" Type="Int32" />
+    <NavigationProperty Name="Alumnos" Relationship="ITSTModel.FK__Calificac__Alumn__282DF8C2" FromRole="Calificaciones" ToRole="Alumnos" />
+    <NavigationProperty Name="Materias" Relationship="ITSTModel.FK__Calificac__Mater__29221CFB" FromRole="Calificaciones" ToRole="Materias" />
+  </EntityType>
+  <Association Name="FK__Calificac__Alumn__282DF8C2">
+    <End Type="ITSTModel.Alumnos" Role="Alumnos" Multiplicity="0..1" />
+    <End Type="ITSTModel.Calificaciones" Role="Calificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumnos">
+        <PropertyRef Name="ID_Alumno" />
+      </Principal>
+      <Dependent Role="Calificaciones">
+        <PropertyRef Name="Alumno_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Calificac__Mater__29221CFB">
+    <End Type="ITSTModel.Materias" Role="Materias" Multiplicity="0..1" />
+    <End Type="ITSTModel.Calificaciones" Role="Calificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materias">
+        <PropertyRef Name="ID_Materia" />
+      </Principal>
+      <Dependent Role="Calificaciones">
+        <PropertyRef Name="Materia_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

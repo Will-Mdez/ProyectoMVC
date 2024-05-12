@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProyectoMVC.Models.Alumnos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Alumnos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@foreach (var item in Model)
+{
+
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="student-inner-std res-mg-b-30">
+            <div class="student-img">
+                <img src="@Html.DisplayFor(modelItem => item.Foto_Url)" alt="" />
+            </div>
+            <div class="student-dtl">
+                <h2> @Html.DisplayFor(modelItem => item.Nombre) @Html.DisplayFor(modelItem => item.ApePat) @Html.DisplayFor(modelItem => item.ApeMat)</h2>
+                <p class="dp">Computer Science Turno: @Html.DisplayFor(modelItem => item.Turno) Semestre: @Html.DisplayFor(modelItem => item.Semestres.ID_Semestre)</p>
+                <p class="dp-ag"><b>Age:</b> @Html.DisplayFor(modelItem => item.Edad) Years  </p>
+                <p class="dp-ag"><b>Matricula:</b> @Html.DisplayFor(modelItem => item.Matricula)</p>
+                <p class="dp"> @Html.DisplayFor(modelItem => item.Curp)</p>
+                <p>
+                    @Html.DisplayFor(modelItem => item.Email) Sexo:
+
+                    @{if (item.Sexo == true)
+                        {
+                            <p>Masculino</p>
+                        }
+                        else
+                        {
+                            <p>Femenino</p>
+                        }
+                    }
+                    }
+                </p>
+                <p>@Html.DisplayFor(modelItem => item.Direccion) @Html.DisplayFor(modelItem => item.Activo)</p>
+                <div>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_Alumno }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_Alumno }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_Alumno })
+                </div>
+                <div>
+                    @Html.ActionLink("CALIFICACIONES", "CalificacionesAlumno", "Calificaciones", new { id = item.ID_Alumno }, null)
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,50 @@
+﻿@model ProyectoMVC.Models.Semestres
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Semestres</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carreras.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carreras.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Semestre }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

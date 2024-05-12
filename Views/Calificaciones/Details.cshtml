@@ -1,0 +1,50 @@
+﻿@model ProyectoMVC.Models.Calificaciones
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Calificaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Calificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alumnos.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alumnos.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Materias.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Materias.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Calificacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
